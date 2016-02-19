@@ -232,11 +232,8 @@ DEPENDENCIES
   byebug
   capybara (= 2.4.4)
   coffee-rails (~> 4.1.0)
-<<<<<<< HEAD
   devise (~> 3.5.1)
-=======
   fabrication
->>>>>>> setup-rspec-capybarab-guard
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
