@@ -68,6 +68,7 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.6.0)
+    fabrication (2.14.1)
     ffi (1.9.10)
     formatador (0.2.5)
     globalid (0.3.6)
@@ -231,7 +232,11 @@ DEPENDENCIES
   byebug
   capybara (= 2.4.4)
   coffee-rails (~> 4.1.0)
+<<<<<<< HEAD
   devise (~> 3.5.1)
+=======
+  fabrication
+>>>>>>> setup-rspec-capybarab-guard
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails

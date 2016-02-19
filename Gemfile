@@ -18,6 +18,7 @@ group :development, :test do
   gem 'rspec-rails', '3.2.3'
   gem 'spring-commands-rspec'
   gem 'guard-rspec', require: false
+  gem 'fabrication'
 end
 
 group :development do
