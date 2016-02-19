@@ -1,0 +1,13 @@
+== Blog lite  
+
+Built an app with basic UI features using sass, coffescript and ajax..
+
+Gems used in this app:
+
+* Devise for user authentication
+
+* faye-rails for real time commenting system 
+
+* thin - fast web server for Faye to work with
+
+Demo[https://pacific-inlet-2878.herokuapp.com/] 
