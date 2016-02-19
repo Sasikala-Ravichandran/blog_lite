@@ -12,8 +12,8 @@
     <%= render 'layouts/header' %>
     <section id="main_content">
       <%= render 'layouts/message' %>
+      <%= yield %>
       <%= render 'layouts/sidebar'%>
-      <%= yield %> <!-- yield -->
     </section>
   </body>
 </html>
