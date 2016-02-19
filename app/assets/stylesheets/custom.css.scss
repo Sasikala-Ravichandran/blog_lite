@@ -1,0 +1,90 @@
+@import 'normalize';
+
+html, body {
+  font-family: 'Raleway', sans-serif;
+  color: #353d41;
+  height: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+a{
+  text-decoration: none;
+  color: inherit
+} 
+
+/* Header Start */
+header{
+  color: #fff;
+  .group{
+    margin:0;
+    background-color: #089de3;
+    width: 100%;
+    height: 60px;
+
+    #left_side{
+      float: left;
+      margin-left: 190px;
+    }
+  
+    #right_side{
+      float: right;
+      li {
+        display: inline-block;
+        margin-right: 25px;
+      }
+   
+     li a{
+        font-size: 700 ;
+        margin: 10px;
+      }
+    }
+  }
+
+  #clear_float{
+    clear: both;
+  }
+} 
+/* Header End */
+
+/* Container wrapper */
+#main_content{
+  width: 100%;
+  background: white;
+  .flash{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    color: #FF8C00;
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+/* Home page */
+#welcome{     
+  background: image-url("welcome.jpg") no-repeat;
+  background-position: center center;
+  background-size: contain;
+  position:absolute;
+  top: 60px;
+  width: 100%;
+  height: 90%;
+}
+
+#sign_up_btn{
+  width: 100px;
+  margin: 30px auto 0 auto;
+  padding: 10px;
+  text-align: center;
+  background-color: #089de3;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+  &:hover{
+    color: #089de3;
+    background-color: #fff;
+    border: 1px solid #089de3;
+  }
+}
