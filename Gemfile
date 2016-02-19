@@ -15,6 +15,8 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails', '3.2.3'
+  gem 'spring-commands-rspec'
+  gem 'guard-rspec', require: false
 end
 
 group :development do
