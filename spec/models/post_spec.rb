@@ -18,4 +18,6 @@ RSpec.describe Post, type: :model do
     expect(@post.errors[:description]).to eq(["can't be blank"])
   end
 
+  it { should belong_to(:user) }
+  
 end

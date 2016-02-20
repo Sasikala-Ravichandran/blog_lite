@@ -75,4 +75,5 @@ RSpec.describe User, :type => :model do
     expect(@user.errors.any?).to be_truthy
   end
 
+  it { should have_many(:posts) }
 end
