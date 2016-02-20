@@ -1,0 +1,18 @@
+<section class="main_wrapper">
+  <div class="sub_header">
+    <%= link_to "Home", current_user, class: "right buttons" %>
+    <%= link_to "New Post", new_user_post_path(current_user), class: "left buttons" %>
+  </div>
+  <div class="left_padding top_margin">  
+    <h2><%= @post.title %></h2>
+    <p class="date"><small><em>created by <%= @post.created_at.strftime("%B, %d, %Y") %></em></small></p>
+    <% if user_signed_in? %>
+      <% if(@post.user == current_user) %>
+        <%= link_to "Edit", edit_user_post_path(@user, @post), :class => "links" %>
+        <%= link_to "Delete", user_post_path(@user, @post), method: :delete,
+                              data: {confirm: "Delete the post?"}, :class => "links"%>
+      <% end %>
+    <% end %>
+    <p><%= simple_format(@post.description) %></p>
+  </div>
+</section>

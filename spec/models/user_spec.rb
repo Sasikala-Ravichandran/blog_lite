@@ -76,4 +76,8 @@ RSpec.describe User, :type => :model do
   end
 
   it { should have_many(:posts) }
+
+  it "returns full name" do
+    expect(@user.full_name).to eq("Maxy Doe")
+  end
 end

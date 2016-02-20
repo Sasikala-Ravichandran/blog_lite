@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 8 }
 
   has_many :posts
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

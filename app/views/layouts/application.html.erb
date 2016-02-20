@@ -11,9 +11,9 @@
 
     <%= render 'layouts/header' %>
     <section id="main_content">
-      <%= render 'layouts/message' %>
+      <%= render 'layouts/message' unless flash.blank? %>
+      <%= render 'layouts/sidebar'%> 
       <%= yield %>
-      <%= render 'layouts/sidebar'%>
     </section>
   </body>
 </html>
