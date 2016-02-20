@@ -7,6 +7,7 @@
     
     <div id="right_side">
       <ul>
+        <li class="buttons"><%= link_to "Posts", posts_path %>
         <%if user_signed_in? %>
           <li class="buttons"><%= link_to "Settings", edit_user_registration_path %></li>
           <li class="buttons"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>

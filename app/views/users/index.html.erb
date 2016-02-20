@@ -1,0 +1,16 @@
+<section class="logged_posts_wrapper">
+  <div class="sub_header">
+    <%= link_to "All posts", posts_path, :class => "right buttons" %><br>
+    <%= link_to "New Post", new_user_post_path(@user), :class => "left buttons" %>
+  <div class="clear"></div>
+  </div>
+  <div class="left_padding">
+  <%@user.posts.each do |post|%>
+    <div class="logged_post_wrapper">
+      <p class="title"><%= link_to post.title, user_post_path(@user.id, post)%></p>
+      <p class="date">Date: <em><%= post.created_at.strftime("%B, %d, %Y") %></em></p>
+      <div class ="line"></div>
+    </div>
+  <% end %>
+  </div>
+ </section> 

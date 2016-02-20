@@ -75,10 +75,4 @@ RSpec.describe User, :type => :model do
     expect(@user.errors.any?).to be_truthy
   end
 
-  it "requires about" do
-    @user.about = " "
-    expect(@user).not_to be_valid
-    expect(@user.errors.any?).to be_truthy
-  end
-
 end

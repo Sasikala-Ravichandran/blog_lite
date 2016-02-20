@@ -1,4 +1,4 @@
-def sign_in_as(user = nil)
+def log_in_as(user = nil)
   visit root_path
   click_link "LOGIN"
 
