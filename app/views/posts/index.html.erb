@@ -15,6 +15,7 @@
   <% @posts.each do |post| %>
     <ul class="listing" align="center">
       <li><h2><%= link_to post.title, post_path(post.id) %></h2></li>
+      <li><%= gravatar_for post.user, size: 60 %></li>
       <li><small> by <%= link_to post.user.full_name, post.user %></small></li>
       <li class="date"><small><em> posted at <%= post.created_at.strftime("%B, %d, %Y") %></em></small></li>
       <% if user_signed_in? %>

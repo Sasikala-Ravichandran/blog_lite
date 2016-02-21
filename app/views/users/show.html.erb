@@ -16,13 +16,16 @@
     <% else %>
       <h1 align="center"><%= @user.full_name %>'s posts</h1>
     <% end %>
-     <div align="center">
+    <div align="center">
+    <%= gravatar_for @user, size: 100%>
+    </div>
+    <div align="center">
       <%= will_paginate @user_posts %>
     </div>
     <%@user_posts.each do |post|%>
       <ul class="listing" align="center">
         <li><h3><%= link_to post.title, post_path(post)%></h3></li>
-        <li><%= truncate(post.description, length: 500, omission: "................") %></li>
+        <li><%= truncate(post.description, length: 200, omission: "................") %></li>
         <div class ="line"></div>
       </ul>
     <% end %>

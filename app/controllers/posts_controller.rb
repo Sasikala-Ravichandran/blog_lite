@@ -3,7 +3,8 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
 
   def index
-    @posts = Post.paginate(page: params[:page], per_page: 4)
+    number = user_signed_in? ? 2 : 3
+    @posts = Post.paginate(page: params[:page], per_page: number)
   end
 
   def show

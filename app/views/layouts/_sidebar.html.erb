@@ -2,7 +2,7 @@
   <aside id="aside_wrapper">
     <h3><%= current_user.full_name%></h3>  
     <% unless current_user.about? %>
-      <%= link_to "Edit", edit_user_registration_path, :class => "btn" %>
+      <%= link_to "Edit Profile", edit_user_registration_path, :class => "btn" %>
     <% else %>
       <p><%= current_user.about if current_user.about? %><p>
       <p><%= link_to current_user.url, current_user.url if current_user.url?%> </p>
