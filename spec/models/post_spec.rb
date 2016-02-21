@@ -22,5 +22,7 @@ RSpec.describe Post, type: :model do
 
   it { should have_many(:post_categories) }
   it { should have_many(:categories).through(:post_categories) }
+
+  it { should have_many(:comments) }
   
 end
