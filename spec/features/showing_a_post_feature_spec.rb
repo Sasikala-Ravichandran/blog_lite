@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'support/macros'
 
-RSpec.feature "Showing a User Profile" do
+RSpec.feature "Showing a Post" do
   
   let!(:user) { Fabricate(:user) }
   let!(:post_1) { Fabricate(:post) }
