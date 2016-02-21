@@ -9,6 +9,9 @@
   <section id="posts_index_wrapper"> 
   <div>
 <% end %> 
+  <div align="center">
+    <%= will_paginate %>
+  </div>
   <% @posts.each do |post| %>
     <ul class="listing" align="center">
       <li><h2><%= link_to post.title, post_path(post.id) %></h2></li>
@@ -24,5 +27,8 @@
       <div class ="line"></div>
     </ul>
   <% end %> 
+  <div align="center">
+    <%= will_paginate @user %>
+  </div>
   </div>
 </section>
