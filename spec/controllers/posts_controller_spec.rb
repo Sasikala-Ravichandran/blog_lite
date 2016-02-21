@@ -61,7 +61,7 @@ RSpec.describe PostsController, type: :controller do
         expect(Post.count).to eq(0)
       end
 
-      it "redirects to show page" do
+      it "redirects to new page" do
         expect(response).to render_template(:new)
       end
 
@@ -143,12 +143,14 @@ RSpec.describe PostsController, type: :controller do
       before { login_with (user) }
       
       it "displays error message" do
-        get :edit, id: post.id, user_id: post.user.id
+        put :update, post: Fabricate.attributes_for(:post, title: " "),
+                     id: post, user_id: post.user.id
         expect(response).to redirect_to root_path
       end
 
       it "redirected to root_path" do
-        get :edit, id: post.id, user_id: post.user.id
+        put :update, post: Fabricate.attributes_for(:post, title: " "),
+                     id: post, user_id: post.user.id
         expect(flash[:danger]).to eq("You do not have authorization to do this!")
       end
     end

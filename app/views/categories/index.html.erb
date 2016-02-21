@@ -6,33 +6,28 @@
       <%= link_to "New Category", new_category_path, class: "left buttons" if current_user.admin? %>
     </div>
     <div class="left_padding top_margin">
-      <h2 align="center"> All Posts </h2>
+    <h2 align="center"> All Categories </h2>
 <% else %>
-  <section id="posts_index_wrapper">
+  <section id="posts_index_wrapper"> 
+  <h2 align="center"> All Categories </h2>
   <div>
-    <h2 align="center"> All Posts </h2>
 <% end %> 
   <div align="center" class="pagination_margin">
     <%= will_paginate %>
   </div>
-  <% @posts.each do |post| %>
+  <% @categories.each do |category| %>
     <ul class="listing" align="center">
-      <li><h2><%= link_to post.title, post_path(post.id) %></h2></li>
-      <li><%= gravatar_for post.user, size: 60 %></li>
-      <li><small> by <%= link_to post.user.full_name, post.user %></small></li>
-      <li class="date"><small><em> posted at <%= post.created_at.strftime("%B, %d, %Y") %></em></small></li>
-      <% if user_signed_in? %>
-        <% if(post.user == current_user || current_user.admin?) %>
-          <p><%= link_to "Edit", edit_user_post_path(post.user, post), :class => "links" %> |
-          <%= link_to "Delete", user_post_path(post.user, post), method: :delete,
+      <li><h2><%= link_to category.name, category_path(category) %></h2></li>
+      <%if user_signed_in? && current_user.admin? %>
+        <p><%= link_to "Edit", edit_category_path(category), :class => "links" %> |
+        <%= link_to "Delete", category_path(category), method: :delete,
                               data: {confirm: "Delete the post?"}, :class => "links"%></p>
-        <% end %>
       <% end %> 
       <div class ="line"></div>
     </ul>
   <% end %> 
   <div align="center" class="pagination_margin">
-    <%= will_paginate @user %>
+    <%= will_paginate %>
   </div>
   </div>
 </section>

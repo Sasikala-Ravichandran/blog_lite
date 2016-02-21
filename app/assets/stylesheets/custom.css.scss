@@ -211,6 +211,11 @@ header{
   .left{
     position:absolute;
     top: 20px;
+    left: 533px;
+  }
+  .middle{
+    position:absolute;
+    top: 20px;
     left: 733px;
   }
   .right{
@@ -312,7 +317,10 @@ header{
 
 .img-circle{
   border-radius: 50%;
+}
 
+.pagination_margin{
+  margin-top: 30px;
 }
 /* styling the input elements */
  

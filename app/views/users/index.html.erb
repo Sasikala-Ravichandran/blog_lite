@@ -2,7 +2,8 @@
   <section class="main_wrapper">
     <div class="sub_header">
       <%= link_to "Home", current_user, class: "right buttons" %>
-      <%= link_to "New Post", new_user_post_path(current_user), class: "left buttons" %>
+      <%= link_to "New Post", new_user_post_path(current_user), class: "middle buttons" %>
+      <%= link_to "New Category", new_category_path, class: "middle buttons" if current_user.admin? %>
     </div>
     <div class="top_margin">
     <h2 align="center"> All Bloggers </h2>
@@ -11,7 +12,7 @@
   <h2 align="center"> All Bloggers </h2>
   <div>
 <% end %>
-    <div align="center">
+    <div align="center"class="pagination_margin" >
       <%= will_paginate @user %>
     </div>
 
@@ -28,7 +29,7 @@
         <div class ="line"></div>
       </ul>
     <% end %>
-    <div align="center">
+    <div align="center" class="pagination_margin">
       <%= will_paginate %>
     </div>
   </div>

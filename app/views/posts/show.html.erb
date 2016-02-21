@@ -2,7 +2,8 @@
   <section class="main_wrapper">
     <div class="sub_header">
       <%= link_to "Home", current_user, class: "right buttons" %>
-      <%= link_to "New Post", new_user_post_path(current_user), class: "left buttons" %>
+      <%= link_to "New Post", new_user_post_path(current_user), class: "middle buttons" %>
+      <%= link_to "New Category", new_category_path, class: "left buttons" if current_user.admin? %>
     </div>
     <% if flash.blank? %>
       <div class="top_margin">

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Category, type: :model do
 
   before :each do
-    @category = Fabricate(:category)
+    @category = Fabricate(:category, name: "Sports")
   end
 
   it "requires name" do
