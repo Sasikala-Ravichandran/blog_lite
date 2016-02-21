@@ -13,7 +13,6 @@ RSpec.feature "Listing Users" do
     expect(page).to have_content "All Bloggers"
     expect(page).to have_content "#{user_1.full_name}"
     expect(page).to have_content "#{user_2.full_name}"
-    expect(page).to have_content "#{user_3.full_name}"
   end
 
   scenario "with signing in" do    
@@ -23,7 +22,6 @@ RSpec.feature "Listing Users" do
     expect(page).to have_content "All Bloggers"
     expect(page).to have_content "#{user_1.full_name}"
     expect(page).to have_content "#{user_2.full_name}"
-    expect(page).to have_content "#{user_3.full_name}"
   end
 
 end
