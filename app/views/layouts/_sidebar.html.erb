@@ -1,6 +1,10 @@
 <% if user_signed_in? %>
   <aside id="aside_wrapper">
-    <h3><%= current_user.full_name%></h3>  
+    <h3><%= current_user.full_name%>
+    <% if current_user.admin? %>
+      (Admin)
+      <%end%>
+    </h3>
     <% unless current_user.about? %>
       <%= link_to "Edit Profile", edit_user_registration_path, :class => "btn" %>
     <% else %>

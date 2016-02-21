@@ -17,7 +17,7 @@
       <small> by <%= link_to @post.user.full_name, @post.user %></small>
       <p class="date"><small><em><%= @post.created_at.strftime("%B, %d, %Y") %></em></small></p>
       <% if user_signed_in? %>
-        <% if(@post.user == current_user) %>
+        <% if(@post.user == current_user || current_user.admin? ) %>
           <p><%= link_to "Edit", edit_user_post_path(@post.user, @post), class: "links" %>|
           <%= link_to "Delete", user_post_path(@post.user, @post), method: :delete,
                               data: {confirm: "Delete the post?"}, class: "links"%></p>

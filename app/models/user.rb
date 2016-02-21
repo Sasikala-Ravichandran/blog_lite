@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 8 }
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
   def full_name
     "#{first_name} #{last_name}"

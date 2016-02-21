@@ -6,7 +6,7 @@ RSpec.describe User, :type => :model do
     @user = User.new(first_name: "Maxy", last_name: "Doe",
                       email: "maxydoe@example.com", password: "password",
                       about: "I am a doctor who is practising internal medicine",
-                      url: "https://www.maxydr.com")
+                      url: "https://www.maxydr.com", admin: false)
   end
   
   it "requires first name" do
@@ -73,6 +73,10 @@ RSpec.describe User, :type => :model do
     @user.password = "a"*7
     expect(@user).not_to be_valid
     expect(@user.errors.any?).to be_truthy
+  end
+
+  it "requires admin to be false by default" do
+    expect(@user.admin).to eq(false)
   end
 
   it { should have_many(:posts) }

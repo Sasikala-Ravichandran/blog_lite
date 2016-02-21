@@ -4,4 +4,5 @@ Fabricator(:user) do
   email { Faker::Internet.email }
   password { Faker::Internet.password }
   about { Faker::Lorem.paragraph }
+  admin false
 end
