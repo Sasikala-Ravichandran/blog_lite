@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   before_action :require_admin, except: [:index, :show]
 
   def index
-    number = user_signed_in? ? 2 : 5
+    number = user_signed_in? ? 3 : 5
     @categories= Category.paginate(page: params[:page], per_page: number)
   end
 
@@ -24,6 +24,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @category_posts = @category.posts.paginate(page: params[:page], per_page: 3)
   end
   
   def edit

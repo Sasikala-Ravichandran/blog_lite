@@ -33,4 +33,6 @@ RSpec.describe Category, type: :model do
 
   end
 
+  it { should have_many(:post_categories) }
+  it { should have_many(:posts).through(:post_categories) }
 end

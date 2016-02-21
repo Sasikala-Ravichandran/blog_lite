@@ -17,6 +17,9 @@
       <div align="center"><%= gravatar_for @post.user, size: 60 %></div>
       <small> by <%= link_to @post.user.full_name, @post.user %></small>
       <p class="date"><small><em><%= @post.created_at.strftime("%B, %d, %Y") %></em></small></p>
+      <% if @post.categories.any? %>
+        <p><small>Categories:&nbsp;&nbsp;<%= render @post.categories %></small></p>
+      <% end %>
       <% if user_signed_in? %>
         <% if(@post.user == current_user || current_user.admin? ) %>
           <p><%= link_to "Edit", edit_user_post_path(@post.user, @post), class: "links" %>|

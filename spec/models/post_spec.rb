@@ -19,5 +19,8 @@ RSpec.describe Post, type: :model do
   end
 
   it { should belong_to(:user) }
+
+  it { should have_many(:post_categories) }
+  it { should have_many(:categories).through(:post_categories) }
   
 end

@@ -1,0 +1,31 @@
+<% if user_signed_in? %>
+  <section class="main_wrapper">
+    <div class="sub_header">
+      <%= link_to "Home", current_user, class: "right buttons" %>
+      <%= link_to "New Post", new_user_post_path(current_user), class: "middle buttons" %>
+      <%= link_to "New Category", new_category_path, class: "left buttons" if current_user.admin? %>
+    </div>
+    <% if flash.blank? %>
+      <div class="top_margin">
+    <% end %>
+<% else %>   
+  <section id="posts_index_wrapper"> 
+  <div>
+<% end %>
+    <h1 align="center"><%= @category.name %></h1>
+    <p align="center"><small><%= pluralize(@category.posts.count, "article") %></small></p>
+    <div align="center" class="pagination_margin">
+      <%= will_paginate @category_posts %>
+    </div>
+    <%@category_posts.each do |post|%>
+      <ul class="listing" align="center">
+        <li><h3><%= link_to post.title, post_path(post)%></h3></li>
+        <li><%= truncate(post.description, length: 200, omission: "................") %></li>
+        <div class ="line"></div>
+      </ul>
+    <% end %>
+    <div align="center" class="pagination_margin">
+      <%= will_paginate @category_posts %>
+    </div>
+  </div>
+ </section> 

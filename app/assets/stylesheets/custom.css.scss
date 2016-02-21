@@ -241,6 +241,15 @@ header{
   padding-left: 30px;
 }
 
+.checkboxes{
+  width: 50%;
+  .boxes{
+    display: inline-block;
+    margin-bottom: 20px;
+    padding-right: 30px;
+  }
+}
+
 .top_margin{
   margin-top: 100px;
 }
@@ -309,10 +318,9 @@ header{
 .edit_user_btn{
   margin-bottom: 1000px;
   margin-left: 620px;
-  background: #FF8C00;
   padding: 10px;
   border-radius: .5em;
-
+  text-decoration: underline;
 }
 
 .img-circle{
@@ -321,6 +329,10 @@ header{
 
 .pagination_margin{
   margin-top: 30px;
+}
+
+.badge {
+  word-spacing: 10px;
 }
 /* styling the input elements */
  
@@ -338,6 +350,10 @@ input[type="text"] {
 
 textarea {
   min-height: 100px;
+}
+
+.input_checkbox input {
+  width: auto !important;
 }
 
 input[type="submit"] {
