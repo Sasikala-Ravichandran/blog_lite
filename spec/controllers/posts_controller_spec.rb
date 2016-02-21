@@ -12,7 +12,7 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
-  before { login_with (:user) }
+  before { login_with (user) }
   
   describe "GET #show" do
     let(:post) { Fabricate(:post) }
@@ -43,7 +43,7 @@ RSpec.describe PostsController, type: :controller do
       end
 
       it "displays a flash message" do
-        expect(flash[:sucess]).to eq("Post has been created successfully")
+        expect(flash[:success]).to eq("Post has been created successfully")
       end
 
       it "redirects to show page" do
@@ -70,50 +70,87 @@ RSpec.describe PostsController, type: :controller do
 
   describe "GET #edit" do
     let(:post) { Fabricate(:post) }
-    it "returns http success" do
-      get :edit, id: post.id, user_id: user.id
-      expect(response).to have_http_status(:success)
-      expect(response).to render_template(:edit)
+    
+    context "edits user's own post" do
+      it "returns http success" do
+        login_with ( post.user )
+        get :edit, id: post.id, user_id: post.user.id
+        #require 'pry'; binding.pry
+        expect(response).to have_http_status(:success)
+        expect(response).to render_template(:edit)
+      end
+    end
+
+    context "edits other user's post" do
+
+      before { login_with (user) }
+      it "displays error message" do        
+        get :edit, id: post.id, user_id: post.user.id
+        expect(response).to redirect_to root_path
+      end
+
+      it "redirected to root_path" do
+        get :edit, id: post.id, user_id: post.user.id
+        expect(flash[:danger]).to eq("You do not have authorization to do this!")
+      end
     end
   end
 
   describe "PUT #update" do
     let(:post) { Fabricate(:post, title: "Amazing Post")}
 
-    context "a successful update" do
-      before do
-        put :update, post: Fabricate.attributes_for(:post, title: "Awesome Post"),
-                     id: post, user_id: user.id
-      end
+    context "updates user's own post" do
+      context "a successful update" do
+        before do
+          login_with ( post.user )
+          put :update, post: Fabricate.attributes_for(:post, title: "Awesome Post"),
+                     id: post, user_id: post.user.id
+        end
       
-      it "saves a post object in database" do
-        expect(Post.last.title).to eq("Awesome Post")
+        it "saves a post object in database" do
+          expect(Post.last.title).to eq("Awesome Post")
+        end
+
+        it "displays a flash message" do
+          expect(flash[:success]).to eq("Post has been updated successfully")
+        end
+
+        it "redirects to show page" do
+          expect(response).to redirect_to post_path(Post.last)
+        end
       end
 
-      it "displays a flash message" do
-        expect(flash[:sucess]).to eq("Post has been updated successfully")
-      end
+      context "an unsuccessful update" do
+        before do
+          login_with ( post.user )
+          put :update, post: Fabricate.attributes_for(:post, title: " "),
+                     id: post, user_id: post.user.id
+        end
+      
+        it "saves a post object in database" do
+          expect(Post.last.title).to eq("Amazing Post")
+        end
 
-      it "redirects to show page" do
-        expect(response).to redirect_to post_path(Post.last)
-      end
+        it "redirects to show page" do
+          expect(response).to render_template(:edit)
+        end
 
+      end
     end
 
-    context "an unsuccessful update" do
-      before do
-        put :update, post: Fabricate.attributes_for(:post, title: " "),
-                     id: post, user_id: user.id
-      end
+    context "updates other user's post" do
+
+      before { login_with (user) }
       
-      it "saves a post object in database" do
-        expect(Post.last.title).to eq("Amazing Post")
+      it "displays error message" do
+        get :edit, id: post.id, user_id: post.user.id
+        expect(response).to redirect_to root_path
       end
 
-      it "redirects to show page" do
-        expect(response).to render_template(:edit)
+      it "redirected to root_path" do
+        get :edit, id: post.id, user_id: post.user.id
+        expect(flash[:danger]).to eq("You do not have authorization to do this!")
       end
-
     end
   end
 
