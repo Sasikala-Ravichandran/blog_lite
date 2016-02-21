@@ -1,16 +1,10 @@
 <% if user_signed_in? %>
   <section class="main_wrapper">
-    <div class="sub_header">
-      <%= link_to "Home", current_user, class: "right buttons" %>
-      <%= link_to "New Post", new_user_post_path(current_user), class: "middle buttons" %>
-      <%= link_to "New Category", new_category_path, class: "left buttons" if current_user.admin? %>
-    </div>
-    <div class="left_padding top_margin">
+    <%= render 'shared/sub_header' %>
     <h2 align="center"> All Categories </h2>
 <% else %>
   <section id="posts_index_wrapper"> 
   <h2 align="center"> All Categories </h2>
-  <div>
 <% end %> 
   <div align="center" class="pagination_margin">
     <%= will_paginate %>
@@ -29,6 +23,5 @@
   <% end %> 
   <div align="center" class="pagination_margin">
     <%= will_paginate %>
-  </div>
   </div>
 </section>

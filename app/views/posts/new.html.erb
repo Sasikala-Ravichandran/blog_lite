@@ -1,8 +1,5 @@
 <div class="main_wrapper">
-  <div class="sub_header">
-    <%= link_to "Home", current_user, :class => "right buttons" %><br>
-    <%= link_to "New Category", new_category_path, class: "middle buttons" if current_user.admin? %>
-  </div>
+  <%= render 'shared/sub_header' %>
   <div class="center_it top_margin">
     <h2 class="title">New Post</h2>
     <%= render 'form'%>

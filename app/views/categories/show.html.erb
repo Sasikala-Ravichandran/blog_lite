@@ -1,19 +1,20 @@
 <% if user_signed_in? %>
   <section class="main_wrapper">
-    <div class="sub_header">
-      <%= link_to "Home", current_user, class: "right buttons" %>
-      <%= link_to "New Post", new_user_post_path(current_user), class: "middle buttons" %>
-      <%= link_to "New Category", new_category_path, class: "left buttons" if current_user.admin? %>
-    </div>
+    <%= render 'shared/sub_header' %>
     <% if flash.blank? %>
       <div class="top_margin">
     <% end %>
 <% else %>   
   <section id="posts_index_wrapper"> 
-  <div>
+    <div>
 <% end %>
     <h1 align="center"><%= @category.name %></h1>
     <p align="center"><small><%= pluralize(@category.posts.count, "article") %></small></p>
+    <%if user_signed_in? && current_user.admin? %>
+      <p align="center"><%= link_to "Edit", edit_category_path(@category), :class => "links" %> |
+      <%= link_to "Delete", category_path(@category), method: :delete,
+                              data: {confirm: "Delete the post?"}, :class => "links"%></p>
+    <% end %> 
     <div align="center" class="pagination_margin">
       <%= will_paginate @category_posts %>
     </div>

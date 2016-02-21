@@ -1,21 +1,9 @@
 <%= form_for([@user, @post]) do |f| %>
-  <% if @post.errors.any?%>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prevented from the saving </h2>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>  
-  <% end %>
-  
+  <%= render 'shared/errors', obj: @post %>
   <%= f.label :title %><br>
   <%= f.text_field :title %><br><br>
-
   <%= f.label :description %><br>
   <%= f.text_area :description %><br><br>
-
   <div class="checkboxes">
   <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
     <% cb.label(class: "boxes") { cb.check_box + cb.text} %>
