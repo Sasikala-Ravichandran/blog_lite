@@ -14,6 +14,9 @@ a{
   color: inherit
 }
 
+h2{
+  margin-bottom: 0px;
+}
 .buttons{
   outline: none;
   padding: .5em 1.5em;
@@ -21,7 +24,12 @@ a{
     border-radius: .5em;
     background: #FF8C00;
   }
-} 
+}
+
+.links{
+  display: inline-block;
+  text-decoration: underline;
+}
 
 /* Header Start */
 header{
@@ -35,6 +43,10 @@ header{
     #left_side{
       float: left;
       margin-left: 190px;
+      a{
+        border: 1px solid black;
+        margin-top: -2px;
+      }
     }
   
     #right_side{
@@ -67,6 +79,7 @@ header{
     color: #FF8C00;
     font-size: 24px;
     font-weight: bold;
+    margin-left: 100px;
   }
   #error_explanation{
     width: 100%;
@@ -227,7 +240,7 @@ header{
 }
 
 .top_margin{
-  margin-top: 60px;
+  margin-top: 100px;
 }
 .center_it{
   width: 100%;
@@ -273,6 +286,31 @@ header{
   }
 }
 
+.listing {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 50px;
+}
+
+.line{
+  border: 1px solid #c5c5c5;
+  margin: 20px 250px 0 0;
+  width: 100%;
+}
+
+.date{
+  margin: 0;
+  font-size: 1em;
+}
+
+.edit_user_btn{
+  margin-top: 30px;
+  margin-left: 620px;
+  background: #FF8C00;
+  padding: 10px;
+  border-radius: .5em;
+
+}
 /* styling the input elements */
  
 input[type="text"], input[type="email"], input[type="password"], input[type="hidden"], textarea {

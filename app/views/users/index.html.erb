@@ -1,16 +1,22 @@
-<section class="logged_posts_wrapper">
-  <div class="sub_header">
-    <%= link_to "All posts", posts_path, :class => "right buttons" %><br>
-    <%= link_to "New Post", new_user_post_path(@user), :class => "left buttons" %>
-  <div class="clear"></div>
-  </div>
-  <div class="left_padding">
-  <%@user.posts.each do |post|%>
-    <div class="logged_post_wrapper">
-      <p class="title"><%= link_to post.title, user_post_path(@user.id, post)%></p>
-      <p class="date">Date: <em><%= post.created_at.strftime("%B, %d, %Y") %></em></p>
-      <div class ="line"></div>
+<% if user_signed_in? %>
+  <section class="main_wrapper">
+    <div class="sub_header">
+      <%= link_to "Home", current_user, class: "right buttons" %>
+      <%= link_to "New Post", new_user_post_path(current_user), class: "left buttons" %>
     </div>
-  <% end %>
+    <div class="top_margin">
+    <h2 align="center"> All Bloggers </h2>
+<% else %>
+  <section id="posts_index_wrapper"> 
+  <h2 align="center"> All Bloggers </h2>
+  <div>
+<% end %>
+    <%@users.each do |user|%>
+      <ul class="listing" align="center">
+        <li><h3><%= link_to user.full_name, user_path(user)%></h3></li>
+        <small><em>Posts Counts: <%= user.posts.count %></em></small>
+        <div class ="line"></div>
+      </ul>
+    <% end %>
   </div>
  </section> 

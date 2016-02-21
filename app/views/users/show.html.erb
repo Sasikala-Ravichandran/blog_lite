@@ -1,0 +1,27 @@
+<% if user_signed_in? %>
+  <section class="main_wrapper">
+    <div class="sub_header">
+      <%= link_to "Home", current_user, class: "right buttons" %>
+      <%= link_to "New Post", new_user_post_path(current_user), class: "left buttons" %>
+    </div>
+    <% if flash.blank? %>
+      <div class="top_margin">
+    <% end %>
+<% else %>   
+  <section id="posts_index_wrapper"> 
+  <div>
+<% end %>
+    <% if current_user == @user %>
+      <h1 align="center">Your's posts</h1>
+    <% else %>
+      <h1 align="center"><%= @user.full_name %>'s posts</h1>
+    <% end %>
+    <%@user.posts.each do |post|%>
+      <ul class="listing" align="center">
+        <li><h3><%= link_to post.title, post_path(post)%></h3></li>
+        <li><%= truncate(post.description, length: 500, omission: "................") %></li>
+        <div class ="line"></div>
+      </ul>
+    <% end %>
+  </div>
+ </section> 

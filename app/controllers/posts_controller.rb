@@ -1,13 +1,12 @@
 class PostsController < ApplicationController
 
-  before_filter :authenticate_user!, except: [:index]
+  before_filter :authenticate_user!, except: [:index, :show]
 
   def index
     @posts = Post.all
   end
 
   def show
-    @user = User.find(params[:user_id])
     @post = Post.find(params[:id])
   end
 
@@ -21,7 +20,7 @@ class PostsController < ApplicationController
     @post = @user.posts.build(post_params)
     if @post.save
       flash[:sucess] = "Post has been created successfully"
-      redirect_to ([@user, @post])
+      redirect_to post_path(@post)
     else
       render :new
     end
@@ -38,7 +37,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:sucess] = "Post has been updated successfully"
-      redirect_to ([@user, @post])
+      redirect_to post_path(@post)
     else
       render :edit
     end

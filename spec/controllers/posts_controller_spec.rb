@@ -47,7 +47,7 @@ RSpec.describe PostsController, type: :controller do
       end
 
       it "redirects to show page" do
-        expect(response).to redirect_to user_post_path(user, Post.last)
+        expect(response).to redirect_to post_path(Post.last)
       end
 
     end
@@ -95,7 +95,7 @@ RSpec.describe PostsController, type: :controller do
       end
 
       it "redirects to show page" do
-        expect(response).to redirect_to user_post_path(user, Post.last)
+        expect(response).to redirect_to post_path(Post.last)
       end
 
     end

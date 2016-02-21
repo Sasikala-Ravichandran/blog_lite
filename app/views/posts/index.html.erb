@@ -10,16 +10,19 @@
   <div>
 <% end %> 
   <% @posts.each do |post| %>
-    <h2><%= post.title %></h2>
-    <p><small>posted by<%= link_to post.user.full_name, post.user %></small></p>
-    <p class="date"><small><em>created by <%= post.created_at.strftime("%B, %d, %Y") %></em></small></p>
-    <% if user_signed_in? %>
-      <% if(post.user == current_user) %>
-        <%= link_to "Edit", edit_user_post_path(post.user, post), :class => "links" %>
-        <%= link_to "Delete", user_post_path(post.user, post), method: :delete,
-                              data: {confirm: "Delete the post?"}, :class => "links"%>
-      <% end %>
-    <% end %> 
+    <ul class="listing" align="center">
+      <li><h2><%= link_to post.title, post_path(post.id) %></h2></li>
+      <li><small> by <%= link_to post.user.full_name, post.user %></small></li>
+      <li class="date"><small><em> posted at <%= post.created_at.strftime("%B, %d, %Y") %></em></small></li>
+      <% if user_signed_in? %>
+        <% if(post.user == current_user) %>
+          <p><%= link_to "Edit", edit_user_post_path(post.user, post), :class => "links" %> |
+          <%= link_to "Delete", user_post_path(post.user, post), method: :delete,
+                              data: {confirm: "Delete the post?"}, :class => "links"%></p>
+        <% end %>
+      <% end %> 
+      <div class ="line"></div>
+    </ul>
   <% end %> 
   </div>
 </section>

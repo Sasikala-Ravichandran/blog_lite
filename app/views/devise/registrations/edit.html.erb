@@ -1,5 +1,5 @@
 <h2 align="center">Edit <%= resource_name.to_s.humanize %></h2>
-
+<%= link_to "Back", current_user, class: "edit_user_btn"%>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "forms" }) do |f| %>
   <%= devise_error_messages! %>
 

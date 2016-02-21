@@ -3,9 +3,10 @@ Rails.application.routes.draw do
                      :path => 'accounts'
 
   resources :users do
-    resources :posts, except: [:index]
+    resources :posts, except: [:index, :show]
   end
   
-  get 'posts', to: 'posts#index'
+  get '/posts', to: 'posts#index'
+  get '/posts/:id', to: 'posts#show', as: 'post'
   root 'welcome#index'
 end
