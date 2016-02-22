@@ -7,7 +7,10 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
     @comment.save 
-    redirect_to @post 
+    respond_to do |format|
+      format.html { redirect_to @post }
+      format.js
+    end
   end
 
   def destroy

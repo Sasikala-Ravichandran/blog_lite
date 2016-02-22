@@ -348,7 +348,8 @@ header{
 }
 
 /* Comment Styling -- Start */
-.comments_wrapper{
+#comments_wrapper{
+  display: none;
   margin: 20px  50px 0 0;
   p{
     margin: 15px;

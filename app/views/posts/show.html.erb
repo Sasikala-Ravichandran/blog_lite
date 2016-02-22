@@ -26,15 +26,11 @@
     </div>
     <p><%= simple_format(@post.description) %></p>
   </div>
-
-  <div>
-    <h5><%= link_to "Comments", "#", class: "links link_tags", id: "comments-link"%></h5>
-    <div class="comments_wrapper">
-      <ol> 
-        <%= render @post.comments %>
-      </ol>
-      <%= render 'comments/form' %>
-    </div>
-    
-  </div>
+  <h5><%= link_to "Comments", '#', class: "links link_tags", id: "comments_link"%></h5>
+  <section id="comments_wrapper">
+    <ol id="comments"> 
+      <%= render @post.comments %>
+    </ol>
+    <%= render 'comments/form' %>
+  </section>
 </section>
