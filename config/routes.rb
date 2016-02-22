@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     resources :posts, except: [:index, :show]
   end
   resources :categories, except: [:delete]
-
+  resources :comments, only: [:create, :destroy]
+  
   delete 'users/:id', to: 'users#destroy', :via => :delete, :as => :admin_destroy_user
   get '/posts', to: 'posts#index'
   get '/posts/:id', to: 'posts#show', as: 'post'
