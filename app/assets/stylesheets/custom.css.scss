@@ -269,7 +269,7 @@ header{
 #aside_wrapper{
   background-color:  #B7CEEC;
   width: 250px;
-  height: 100%;
+  height: 300%;
   position: absolute;
   top: 60px;
   left: 0px;
@@ -337,6 +337,28 @@ header{
 .badge {
   word-spacing: 10px;
 }
+
+.link_tags{
+  color: #089de3;
+  font-style: italic;
+}
+
+#zero_margin{
+  margin-left: 0;
+}
+
+/* Comment Styling -- Start */
+.comments_wrapper{
+  margin: 20px  50px 0 0;
+  p{
+    margin: 15px;
+  }
+  li{
+    list-style-type: none;
+  }
+}
+/* Comment Styling -- End */
+
 /* styling the input elements */
  
 input[type="text"], input[type="email"], input[type="password"], input[type="hidden"], textarea {

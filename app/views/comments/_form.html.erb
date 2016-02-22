@@ -1,5 +1,6 @@
-<%= form_for(@post.comments.build) do |f| %>
-  <%= f.text_area :body, rows: 2, cols: 60, placeholder: "Write a comment..." %><br>
+<%= form_for(@post.comments.build, html: { align: "center" }) do |f| %>
+  <%= f.hidden_field :post_id, :value => @post.id %>
+  <%= f.text_area :content, placeholder: "Write a comment..." %><br>
   <br>
-  <%= f.submit "Post comment" %>
+  <%= f.submit "Post comment", id: "zero_margin" %>
 <% end %>

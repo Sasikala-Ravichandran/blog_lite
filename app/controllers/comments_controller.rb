@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   
   def create
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:comment][:post_id])
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
     @comment.save 
@@ -12,8 +12,9 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @post.comments.destroy(@comment)
-    redirect_to user_post_path(current_user, @post)
+    @post = @comment.post
+    @comment.destroy
+    redirect_to post_path(@post)
   end
 
   private
