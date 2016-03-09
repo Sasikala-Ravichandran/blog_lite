@@ -2,9 +2,9 @@
 
 An application allows users to create/edit/delete/view their own blog posts, view other fellow bloggers, view other bloggers' blog posts, browse the blog posts through categories. 
 
-Blog lite is live at here[https://blog-lite.herokuapp.com/]
+Blog lite is live at here[https://blog-lite.herokuapp.com/].
 
-Features:
+Features of the app:
 
 * Authentication mechanism
 
@@ -19,7 +19,7 @@ Features:
 
 * Commenting system for each post using ajax
 
-Purpose of building this app:
+Implementation details of the app:
 
 * Used Devise for authentication system
 
