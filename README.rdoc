@@ -1,13 +1,34 @@
-== Blog lite  
+##Blog-Lite
 
-Built an app with basic UI features using sass, coffescript and ajax..
+An application allows users to create/edit/delete/view their own blog posts, view other fellow bloggers, view other bloggers' blog posts, browse the blog posts through categories. 
 
-Gems used in this app:
+Blog lite is live at [here](https://blog-lite.herokuapp.com/)
 
-* Devise for user authentication
+Features:
 
-* faye-rails for real time commenting system 
+* Authentication mechanism
 
-* thin - fast web server for Faye to work with
+* Authorization mechanism
+  (Admin can do all RESTFUL action to User, Post, Category models)
 
-Demo[https://pacific-inlet-2878.herokuapp.com/] 
+* User can view all the posts through categories
+
+* User can add his profile image through gravatar service
+
+* Pagination to listing of Posts, Bloggers and Categories
+
+* Commenting system for each post using ajax
+
+Purpose of building this app:
+
+* Used Devise for authentication system
+
+* Customized Devise for adding attributes for user model
+
+* Applied TDD using rspec, capybara, fabrication, faker, shoulda-matchers, guard
+
+* Hand coded css to get familiarized with styling the whole app
+
+* Added coffescript to comments link
+
+* Added Ajax for adding the comments to post without reloading the blog post
