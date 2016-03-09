@@ -1,4 +1,4 @@
-##Blog-Lite
+== Blog-Lite  
 
 An application allows users to create/edit/delete/view their own blog posts, view other fellow bloggers, view other bloggers' blog posts, browse the blog posts through categories. 
 
