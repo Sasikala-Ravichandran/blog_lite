@@ -1,6 +1,6 @@
 <div class="flash">
   <% if user_signed_in? %>
-    <div class="logged_posts_wrapper top_margin"> 
+    <div class="flash_signin logged_posts_wrapper top_margin"> 
   <% end %>
   <% flash.each do |name, msg| %>
     <%= content_tag(:div, msg, class: alert) if msg.is_a?(String) %>
